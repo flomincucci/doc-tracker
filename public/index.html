@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RFC Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <span class="brand-icon">📚</span>
+          <h1>RFC Library</h1>
+        </div>
+        <div class="input-row">
+          <input
+            id="url-input"
+            type="text"
+            placeholder="Paste Google Doc link..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button id="add-btn" title="Add document">+</button>
+        </div>
+        <div id="add-status" class="status-msg"></div>
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8.5" cy="8.5" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13 13l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <input id="search-input" type="search" placeholder="Search…" autocomplete="off" spellcheck="false" />
+        </div>
+        <div id="tag-filters" class="tag-filters"></div>
+      </div>
+      <div id="doc-list" class="doc-list"></div>
+      <div class="sidebar-footer">
+        <button id="export-btn">↓ Export JSON</button>
+        <label id="import-label">↑ Import JSON<input id="import-input" type="file" accept=".json" /></label>
+        <span id="import-status" class="import-status"></span>
+      </div>
+    </aside>
+
+    <main class="viewer">
+      <a id="open-btn" href="#" target="_blank" rel="noopener" style="display:none">
+        Open in Google Docs ↗
+      </a>
+      <div id="empty-state" class="empty-state">
+        <div class="empty-state-icon">📄</div>
+        <p class="empty-state-title">No document selected</p>
+        <p class="empty-state-sub">Pick one from the sidebar to preview it here.</p>
+      </div>
+      <iframe id="doc-frame" style="display:none" allowfullscreen></iframe>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
